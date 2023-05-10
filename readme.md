@@ -4,8 +4,8 @@
 
 **SCREENSHOTS** 
 
-**Dashboard**
-<img src="https://i.ibb.co/D4T0z6T/dashboard.png" alt="dashboard" border="0">
+**Admin Dashboard**
+<img src="https://ibb.co/wzKmxp1" alt="dashboard" border="0">
 
 **Login**
 <img src="https://i.ibb.co/Rh1Bfwk/login.png" alt="login" border="0">
@@ -20,7 +20,7 @@
 <div style="clear: both"> </div>
 <img src="https://i.ibb.co/5c1GHCj/capture-20210530-115521-crop.png" alt="print-marksheet">
 
-**Print Tabulation Sheet & Marksheet**
+**Print Places**
 <img src="https://i.ibb.co/QmscPfn/capture-20210530-115802.png" alt="tabulation-sheet" border="0">
 
 <hr />  
