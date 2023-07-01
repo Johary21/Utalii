@@ -39,14 +39,12 @@ After seeding. Login details as follows:
 **-- Administrators (Super Admin & Admin)**
 
 - Manage students class/sections
-- View marksheet of students
+- 
 - Create, Edit and manage all user accounts & profiles
-- Create, Edit and manage Exams & Grades
-- Create, Edit and manage Subjects
-- Manage noticeboard of school
-- Notices are visible in calendar in dashboard
+- Create, Edit and manage places
+- Create, Edit and manage Budget questions
+- Manage calender events
 - Edit system settings
-- Manage Payments & fees
 
 **-- Guest**
 - Manage own profile
