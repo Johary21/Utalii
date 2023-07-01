@@ -141,7 +141,7 @@
                 <p>Hover over a site to learn more about it.</p>
                 <div id="map" style="height: 600px;"></div>
                 <!-- calling the script -->
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgtwk9hM9kskhPEgiftk_ihCMpN23qEb0&callback=initMap&v=weekly" async></script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=APIKEY&callback=initMap&v=weekly" async></script>
             </div>
         </div>
         <br>
