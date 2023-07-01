@@ -28,7 +28,7 @@ After seeding. Login details as follows:
 | ------------- | -------- | ----- | -------- |
 | Super Admin | cj | cj@cj.com | cj |
 |  Admin | admin | admin@admin.com | cj |
-|  Teacher | teacher | teacher@teacher.com | cj |
+|  Guest | Guest | guest@guest.com | cj |
 
 #### **FUNCTIONS OF ACCOUNTS** 
 
@@ -48,10 +48,6 @@ After seeding. Login details as follows:
 - Edit system settings
 - Manage Payments & fees
 
-**-- TEACHER**
-- Manage Own Class/Section
-- Manage Exam Records for own Subjects
-- Manage Timetable if Assigned as Class Teacher
+**-- Guest**
 - Manage own profile
-- Upload Study Materials
-
+- Search for places
