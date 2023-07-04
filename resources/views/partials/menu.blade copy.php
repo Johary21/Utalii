@@ -1,5 +1,4 @@
-<div class="sidebar sidebar-dark bg-light-orange sidebar-main sidebar-expand-md">
-
+<div class="sidebar sidebar-dark bg-success sidebar-main sidebar-expand-md">
 
     <!-- Sidebar mobile toggler -->
     <div class="sidebar-mobile-toggler text-center">
@@ -21,14 +20,18 @@
         <div class="sidebar-user">
             <div class="card-body">
                 <div class="media">
-                    <!-- <div class="mr-3">
+                    <div class="mr-3">
                         <a href="{{ route('my_account') }}"><img src="{{ Auth::user()->photo }}" width="38" height="38" class="rounded-circle" alt="photo"></a>
-                    </div> -->
+                    </div>
 
                     <div class="media-body">
                         <div class="media-title font-weight-semibold">{{ Auth::user()->name }}</div>
                         <div class="font-size-xs opacity-50">
-                            <i class="icon-user font-size-sm"></i> &nbsp;{{ ucwords(str_replace('_', ' ', Auth::user()->user_type == 'teacher' ? 'guest' : Auth::user()->user_type)) }}
+                            @if(Auth::user()->user_type == 'teacher')
+                                    <i class="icon-user font-size-sm"></i> &nbsp;Guest
+                                @else
+                                    <i class="icon-user font-size-sm"></i> &nbsp;{{ ucwords(str_replace('_', ' ', Auth::user()->user_type)) }}
+                                @endif
                         </div>
                     </div>
 
@@ -87,10 +90,6 @@
                         <a href="{{ route('sections.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['sections.index','sections.edit',]) ? 'active' : '' }}"><i class="icon-fence"></i> <span>Sections</span></a>
                     </li> --}}
 
-                    <li class="nav-item">
-                        <a href="{{ route('sections.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['sections.index','sections.edit',]) ? 'active' : '' }}"><i class="icon-calendar"></i> <span>Calender Events</span></a>
-                    </li>
-
 
                 @endif
 
@@ -102,13 +101,13 @@
                 </li>
 
                 {{--Log Out--}}
-                <li class="nav-item {{ Route::currentRouteName() == 'logout' ? 'active' : '' }}">
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link"><i class="icon-switch2"></i><span> Logout</span></a>
+                <li class="nav-item">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();" class="nav-link"><i class="icon-switch2"></i> Logout</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
                 </li>
-
 
                 </ul>
             </div>

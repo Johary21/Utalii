@@ -33,8 +33,8 @@
                                         <label for="user_type"> Select User: <span class="text-danger">*</span></label>
                                         <select required data-placeholder="Select User" class="form-control select" name="user_type" id="user_type">
                                             @foreach($user_types as $ut)
-                                            <option value="{{ Qs::hash($ut->id) }}" {{ Auth::user() && Auth::user()->user_type == 'teacher' && $ut->name == 'Teacher' ? 'disabled' : '' }}>
-                                                {{ $ut->name == 'Teacher' ? 'Guest' : $ut->name }}
+                                            <option value="{{ Qs::hash($ut->id) }}" {{ Auth::user() && Auth::user()->user_type == 'guest' && $ut->name == 'guest' ? 'disabled' : '' }}>
+                                                {{ $ut->name == 'guest' ? 'guest' : $ut->name }}
                                             </option>
                                         @endforeach
                                         </select>
@@ -126,39 +126,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            {{-- <div class="row"> --}}
-                                {{--State--}}
-                                {{-- <div class="col-md-4">
-                                    <label for="state_id">State: <span class="text-danger">*</span></label>
-                                    <select onchange="getLGA(this.value)" required data-placeholder="Choose.." class="select-search form-control" name="state_id" id="state_id">
-                                        <option value=""></option>
-                                        @foreach($states as $st)
-                                            <option {{ (old('state_id') == $st->id ? 'selected' : '') }} value="{{ $st->id }}">{{ $st->name }}</option>
-                                        @endforeach
-                                    </select> --}}
-                                {{-- </div> --}}
-                                {{--LGA--}}
-                                {{-- <div class="col-md-4">
-                                    <label for="lga_id">LGA: <span class="text-danger">*</span></label>
-                                    <select required data-placeholder="Select State First" class="select-search form-control" name="lga_id" id="lga_id">
-                                        <option value=""></option>
-                                    </select>
-                                </div> --}}
-                                {{--BLOOD GROUP--}}
-                                {{-- <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="bg_id">Blood Group: </label>
-                                        <select class="select form-control" id="bg_id" name="bg_id" data-fouc data-placeholder="Choose..">
-                                            <option value=""></option>
-                                            @foreach($blood_groups as $bg)
-                                                <option {{ (old('bg_id') == $bg->id ? 'selected' : '') }} value="{{ $bg->id }}">{{ $bg->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </div> --}}
 
                             <div class="row">
                                 {{--PASSPORT--}}

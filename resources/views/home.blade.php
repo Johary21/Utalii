@@ -65,4 +65,4 @@
 </div>
 @endsection
 
-{{-- @extends('partials.footer') --}}
+@extends('partials.footer')

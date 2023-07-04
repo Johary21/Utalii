@@ -1,7 +1,7 @@
 @extends('partials.nav')
 
-@section('content')
 
+{{-- @section('content')
 <div class="container mt-5">
     <h1>About Us</h1>
     <hr>
@@ -35,5 +35,51 @@
         </div>
     </div>
 </div>
+@endsection --}}
 
+@section('content')
+    <section class="section bg-light" style="margin-top: 70px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Discover the Beauty of Tanzania</h2>
+                    <p class="section-text">Welcome to Utalii, your gateway to the breathtaking wonders of Tanzania. We are passionate about showcasing the rich cultural heritage, stunning landscapes, and diverse wildlife of this East African nation.</p>
+                    <p class="section-text">At Utalii, we believe that travel is not just about visiting new places, but also about creating meaningful experiences. Whether you're an adventurous soul, a wildlife enthusiast, or a culture lover, we have something extraordinary to offer.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{{ asset('global_assets/images/Places/Dar.png') }}" class="img-fluid rounded" alt="Tanzania">
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section class="section bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="{{ asset('global_assets/images/Places/culture.jpg') }}" class="img-fluid rounded" alt="Culture">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Immerse Yourself in Tanzanian Culture</h2>
+                    <p class="section-text">Tanzania is a land of vibrant cultures and traditions. Experience the warmth and hospitality of the Tanzanian people as you explore local villages, participate in traditional dances, and taste the authentic flavors of Tanzanian cuisine.</p>
+                    <p class="section-text">Discover the ancient customs, rituals, and folklore that have been passed down through generations. Our carefully crafted cultural experiences will leave you with a deep appreciation for the diversity and heritage of Tanzania.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Embark on Thrilling Adventures</h2>
+                    <p class="section-text">Calling all adventure seekers! Tanzania offers a playground of thrilling activities. From climbing the majestic Mount Kilimanjaro, Africa's highest peak, to going on a safari in the world-famous Serengeti National Park, prepare to be captivated by the untamed beauty of the wilderness.</p>
+                    <p class="section-text">Dive into the crystal-clear waters of Zanzibar's pristine beaches, go snorkeling in the vibrant coral reefs, or hike through the lush rainforests of the Usambara Mountains. Whatever your adrenaline-fueled desire, Tanzania has it all.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{{ asset('global_assets/images/Places/zanzibar.png') }}" class="img-fluid rounded" alt="Adventure">
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
