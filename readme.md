@@ -49,3 +49,4 @@ After seeding. Login details as follows:
 **-- Guest**
 - Manage own profile
 - Search for places
+- Budgetting
