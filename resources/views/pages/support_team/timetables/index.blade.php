@@ -2,35 +2,27 @@
 @section('page_title', 'Prediction')
 @section('content')
 
-    <div class="card">
+    <div class="card ">
         <div class="card-header header-elements-inline">
             <h6 class="card-title">Budget Prediction</h6>
             {!! Qs::getPanelOptions() !!}
         </div>
 
-        <div class="card-body">
+        <div class="card-body ">
             <ul class="nav nav-tabs nav-tabs-highlight">
                 @if(Qs::userIsTeamSA())
                 <li class="nav-item"><a href="#add-tt" class="nav-link active" data-toggle="tab">Review Questions</a></li>
                 @endif
-                {{-- <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Edit Questions</a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        @foreach($my_classes as $mc)
-                            <a href="#ttr{{ $mc->id }}" class="dropdown-item" data-toggle="tab">{{ $mc->name }}</a>
-                        @endforeach
-                    </div>
-                </li> --}}
             </ul>
 
             <div class="tab-content">
-                <form method="POST" action="#" onsubmit="showEstimatedBudget(event)">
+                    <form id="predictionForm" method="POST" action="{{ route('predict') }}" onsubmit="event.preventDefault(); submitPredictionForm();">
                     @csrf
 
                     <div class="form-group">
                         <label for="country">Select a country:</label>
                         <select id="country" name="country" class="form-control">
-                            <option value="SWITZERLAND">SWITZERLAND</option>
+                            <option value="SWIZERLAND">SWITZERLAND</option>
                             <option value="UNITED KINGDOM">UNITED KINGDOM</option>
                             <option value="CHINA">CHINA</option>
                             <option value="SOUTH AFRICA">SOUTH AFRICA</option>
@@ -43,12 +35,114 @@
                             <option value="MOZAMBIQUE">MOZAMBIQUE</option>
                             <option value="RWANDA">RWANDA</option>
                             <option value="AUSTRIA">AUSTRIA</option>
+                            <option value="MYANMAR">MYANMAR</option>
+                            <option value="GERMANY">GERMANY</option>
+                            <option value="KENYA">KENYA</option>
+                            <option value="ALGERIA">ALGERIA</option>
+                            <option value="IRELAND">IRELAND</option>
+                            <option value="DENMARK">DENMARK</option>
+                            <option value="SPAIN">SPAIN</option>
+                            <option value="FRANCE">FRANCE</option>
+                            <option value="ITALY">ITALY</option>
+                            <option value="EGYPT">EGYPT</option>
+                            <option value="QATAR">QATAR</option>
+                            <option value="MALAWI">MALAWI</option>
+                            <option value="JAPAN">JAPAN</option>
+                            <option value="SWEDEN">SWEDEN</option>
+                            <option value="NETHERLANDS">NETHERLANDS</option>
+                            <option value="UAE">UAE</option>
+                            <option value="UGANDA">UGANDA</option>
+                            <option value="AUSTRALIA">AUSTRALIA</option>
+                            <option value="YEMEN">YEMEN</option>
+                            <option value="NEW ZEALAND">NEW ZEALAND</option>
+                            <option value="BELGIUM">BELGIUM</option>
+                            <option value="NORWAY">NORWAY</option>
+                            <option value="ZIMBABWE">ZIMBABWE</option>
+                            <option value="ZAMBIA">ZAMBIA</option>
+                            <option value="CONGO">CONGO</option>
+                            <option value="BURGARIA">BURGARIA</option>
+                            <option value="PAKISTAN">PAKISTAN</option>
+                            <option value="GREECE">GREECE</option>
+                            <option value="MAURITIUS">MAURITIUS</option>
+                            <option value="DRC">DRC</option>
+                            <option value="OMAN">OMAN</option>
+                            <option value="PORTUGAL">PORTUGAL</option>
+                            <option value="BELGIUM">BELGIUM</option>
+                            <option value="NORWAY">NORWAY</option>
+                            <option value="ZIMBABWE">ZIMBABWE</option>
+                            <option value="ZAMBIA">ZAMBIA</option>
+                            <option value="CONGO">CONGO</option>
+                            <option value="BURGARIA">BURGARIA</option>
+                            <option value="PAKISTAN">PAKISTAN</option>
+                            <option value="GREECE">GREECE</option>
+                            <option value="MAURITIUS">MAURITIUS</option>
+                            <option value="DRC">DRC</option>
+                            <option value="OMAN">OMAN</option>
+                            <option value="PORTUGAL">PORTUGAL</option>
+                            <option value="KOREA">KOREA</option>
+                            <option value="SWAZILAND">SWAZILAND</option>
+                            <option value="TUNISIA">TUNISIA</option>
+                            <option value="KUWAIT">KUWAIT</option>
+                            <option value="DOMINICA">DOMINICA</option>
+                            <option value="ISRAEL">ISRAEL</option>
+                            <option value="FINLAND">FINLAND</option>
+                            <option value="CZECH REPUBLIC">CZECH REPUBLIC</option>
+                            <option value="UKRAINE">UKRAINE</option>
+                            <option value="TURKEY">TURKEY</option>
+                            <option value="TRINIDAD TOBACCO">TRINIDAD TOBACCO</option>
+                            <option value="IRAQ">IRAQ</option>
+                            <option value="SLOVENIA">SLOVENIA</option>
+                            <option value="UNITED ARAB EMIRATES">UNITED ARAB EMIRATES</option>
+                            <option value="COMORO">COMORO</option>
+                            <option value="SRI LANKA">SRI LANKA</option>
+                            <option value="IRAN">IRAN</option>
+                            <option value="MONTENEGRO">MONTENEGRO</option>
+                            <option value="ANGOLA">ANGOLA</option>
+                            <option value="LEBANON">LEBANON</option>
+                            <option value="SLOVAKIA">SLOVAKIA</option>
+                            <option value="ROMANIA">ROMANIA</option>
+                            <option value="MEXICO">MEXICO</option>
+                            <option value="LATVIA">LATVIA</option>
+                            <option value="CROATIA">CROATIA</option>
+                            <option value="CAPE VERDE">CAPE VERDE</option>
+                            <option value="SUDAN">SUDAN</option>
+                            <option value="COSTARICA">COSTARICA</option>
+                            <option value="CHILE">CHILE</option>
+                            <option value="NAMIBIA">NAMIBIA</option>
+                            <option value="TAIWAN">TANZANIA</option>
+                            <option value="SERBIA">SERBIA</option>
+                            <option value="LESOTHO">LESOTHO</option>
+                            <option value="GEORGIA">GEORGIA</option>
+                            <option value="PHILIPINES">PHILIPINES</option>
+                            <option value="IVORY COAST">IVORY COAST</option>
+                            <option value="MADAGASCAR">MADAGASCAR</option>
+                            <option value="DJIBOUT">DJIBOUT</option>
+                            <option value="CYPRUS">CYPRUS</option>
+                            <option value="ARGENTINA">ARGENTINA</option>
+                            <option value="URUGUAY">URUGUAY</option>
+                            <option value="MOROCCO">MOROCCO</option>
+                            <option value="THAILAND">THAILAND</option>
+                            <option value="BERMUDA">BERMUDA</option>
+                            <option value="ESTONIA">ESTONIA</option>
+                            <option value="BOTSWANA">BOTSWANA</option>
+                            <option value="VIETNAM">VIETNAM</option>
+                            <option value="GUINEA">GUINEA</option>
+                            <option value="MACEDONIA">MACEDONIA</option>
+                            <option value="HAITI">HAITI</option>
+                            <option value="LIBERIA">LIBERIA</option>
+                            <option value="SAUDI ARABIA">SAUDI ARABIA</option>
+                            <option value="BOSNIA">BOSNIA</option>
+                            <option value="BULGARIA">BULGARIA</option>
+                            <option value="PERU">PERU</option>
+                            <option value="BANGLADESH">BANGLADESH</option>
+                            <option value="JAMAICA">JAMAICA</option>
+                            <option value="SOMALIA">SOMALIA</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="age">Select your age group:</label>
-                        <select id="age" name="age" class="form-control">
+                        <label for="age_group">Select your age group:</label>
+                        <select id="age_group" name="age_group" class="form-control">
                             <option value="1-24">1-24</option>
                             <option value="25-44">25-44</option>
                             <option value="45-64">45-64</option>
@@ -57,13 +151,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="travelWith">Who do you plan to travel with:</label>
-                        <select id="travelWith" name="travelWith" class="form-control">
+                        <label for="travel_with">Who do you plan to travel with:</label>
+                        <select id="travel_with" name="travel_with" class="form-control">
                             <option value="Friends/Relatives">Friends/Relatives</option>
                             <option value="Alone">Alone</option>
                             <option value="Spouse">Spouse</option>
                             <option value="Children">Children</option>
-                            <option value="Spouseandchildren">Spouse and Children</option>
+                            <option value="Spouse and Children">Spouse and Children</option>
                         </select>
                     </div>
 
@@ -71,7 +165,7 @@
                         <label for="purpose">What is the purpose of visiting Tanzania:</label>
                         <select id="purpose" name="purpose" class="form-control">
                             <option value="Leisure and Holidays">Leisure and Holidays</option>
-                            <option value="Visiting friends and Relatives">Visiting friends and Relatives</option>
+                            <option value="Visiting Friends and Relatives">Visiting friends and Relatives</option>
                             <option value="Business">Business</option>
                             <option value="Meetings and Conference">Meetings and Conference</option>
                             <option value="Volunteering">Volunteering</option>
@@ -81,29 +175,29 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="numberofpeople">How many people are you coming with in Tanzania:</label>
-                        <input type="number" id="numberofpeople" name="numberofpeople" min="1" max="100" class="form-control" required>
+                        <label for="total_number">How many people are you coming with in Tanzania:</label>
+                        <input type="number" id="total_number" name="total_number" min="1" max="100" class="form-control" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="activity">What is the main activity you want to do when you are in Tanzania:</label>
-                        <select id="activity" name="activity" class="form-control">
+                        <label for="main_activity">What is the main activity you want to do when you are in Tanzania:</label>
+                        <select id="main_activity" name="main_activity" class="form-control">
                             <option value="Wildlife tourism">Wildlife tourism</option>
                             <option value="Cultural tourism">Cultural tourism</option>
-                            <option value="Mountain Climbing">Mountain Climbing</option>
-                            <option value="Beach Tourism">Beach Tourism</option>
-                            <option value="Conference Tourism">Conference Tourism</option>
-                            <option value="Bird Watching">Bird Watching</option>
-                            <option value="Business">Business</option>
-                            <option value="Diving and Sport fishing">Diving and Sport fishing</option>
+                            <option value="Mountain climbing">Mountain Climbing</option>
+                            <option value="Beach tourism">Beach Tourism</option>
+                            <option value="Conference tourism">Conference Tourism</option>
+                            <option value="Bird watching">Bird Watching</option>
+                            <option value="business">Business</option>
+                            <option value="Diving and Sport Fishing">Diving and Sport fishing</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="tourArrangement">How do you arrange your tour:</label>
-                        <select id="tourArrangement" name="tourArrangement" class="form-control">
+                        <label for="tour_arrangement">How do you arrange your tour:</label>
+                        <select id="tour_arrangement" name="tour_arrangement" class="form-control">
                             <option value="Independent">Independent</option>
-                            <option value="Package tour">Package tour</option>
+                            <option value="Package Tour">Package tour</option>
                         </select>
                     </div>
 
@@ -173,12 +267,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="paymentmode">Payment Mode for Tourism Service:</label>
-                        <select id="paymentmode" name="paymentmode" class="form-control">
+                        <label for="payment_mode">Payment Mode for Tourism Service:</label>
+                        <select id="payment_mode" name="payment_mode" class="form-control">
                             <option value="Cash">Cash</option>
                             <option value="Credit Card">Credit Card</option>
                             <option value="Other">Other</option>
-                            <option value="TravellerCheque">Traveller's Cheque</option>
+                            <option value="Travellers Cheque">Traveller's Cheque</option>
                         </select>
                     </div>
 
@@ -230,42 +324,55 @@
                 </div>
                 <!--modal end-->
             </div>
-    <script>
-        function showEstimatedBudget(event) {
-            event.preventDefault(); // Prevent form submission
 
-            // Perform calculations to estimate the budget
-            var estimatedBudget = calculateEstimatedBudget();
 
-            // Display the estimated budget in a pop-up window
-            alert("Estimated Budget: $" + estimatedBudget);
-        }
+        {{-- <script>
+            function showEstimatedBudget(event) {
+                event.preventDefault(); // Prevent form submission
 
-        function calculateEstimatedBudget() {
-            // Perform your budget estimation calculations here
-            // Return the estimated budget value
-            return "The predicted amount of money you will spend is: 500,000"; // Replace with your actual calculation
-        }
-    </script>
+                $ajax()
+                // Perform calculations to estimate the budget
+                var estimatedBudget = calculateEstimatedBudget();
 
-<script>
-    function showEstimatedBudget(event) {
-        event.preventDefault(); // Prevent form submission
+                // Display the estimated budget on the page
+                var budgetAmountElement = document.getElementById("budgetAmount");
+                budgetAmountElement.textContent = estimatedBudget + "Tsh" ;
 
-        // Perform calculations to estimate the budget
-        var estimatedBudget = calculateEstimatedBudget();
+                // Show the result container
+                var resultContainer = document.getElementById("resultContainer");
+                resultContainer.style.display = "block";
+            }
 
-        // Display the estimated budget on the page
-        var budgetAmountElement = document.getElementById("budgetAmount");
-        budgetAmountElement.textContent = estimatedBudget + "Tsh" ;
+            // Rest of the JavaScript code...
+        </script> --}}
+        <script>
+            function submitPredictionForm() {
+                var form = document.getElementById('predictionForm');
+                var formData = new FormData(form);
 
-        // Show the result container
-        var resultContainer = document.getElementById("resultContainer");
-        resultContainer.style.display = "block";
-    }
+                // Make an AJAX request to the Laravel endpoint
+                $.ajax({
+                    url: form.action,
+                    type: form.method,
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        // Update modal content with the prediction result
+                        var message = response.message;
+                        $('#budgetAmount').text(message);
+                        $('#predictModal').modal('show');
+                    },
+                    error: function(xhr, status, error) {
+                        var errorMessage = 'API request failed with status code: ' + xhr.status;
+                        var errorResponse = xhr.responseText;
+                        $('#budgetAmount').html('<span class="text-danger">' + errorMessage + '</span><br><span class="text-danger">Error response: ' + errorResponse + '</span>');
+                        $('#predictModal').modal('show');
+                    }
+                });
+            }
+        </script>
 
-    // Rest of the JavaScript code...
-</script>
 
 
         </div>

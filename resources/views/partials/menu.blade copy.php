@@ -68,7 +68,7 @@
                         <a href="{{ route('showplaces') }}" class="nav-link"><i class="icon-home"></i> <span>Places</span></a>
                     </li>
                     <li class="nav-item {{ Route::currentRouteName() == 'dorms.index' ? 'active' : '' }}">
-                        <a href="{{ route('showplaces') }}" class="nav-link"><i class="icon-pin"></i> <span>Favourite</span></a>
+                        <a href="{{ route('favorite') }}" class="nav-link"><i class="icon-pin"></i> <span>Favourite</span></a>
                     </li>
                 @endif
 

@@ -43,12 +43,12 @@
                                                 <div class="dropdown-menu dropdown-menu-left">
                                                     @if(Qs::userIsTeamSA())
                                                     {{--Edit--}}
-                                                    <a href="{{ route('dorms.edit', $d->id) }}" class="dropdown-item"><i class="icon-pencil"></i> Edit</a>
+                                                    <a href="{{ route('places.edit', $d->id) }}" class="dropdown-item"><i class="icon-pencil"></i> Edit</a>
                                                    @endif
                                                         @if(Qs::userIsSuperAdmin())
                                                     {{--Delete--}}
                                                     <a id="{{ $d->id }}" onclick="confirmDelete(this.id)" href="#" class="dropdown-item"><i class="icon-trash"></i> Delete</a>
-                                                    <form method="post" id="item-delete-{{ $d->id }}" action="{{ route('dorms.destroy', $d->id) }}" class="hidden">@csrf @method('delete')</form>
+                                                    <form method="post" id="item-delete-{{ $d->id }}" action="{{ route('places.destroy', $d->id) }}" class="hidden">@csrf @method('delete')</form>
                                                         @endif
 
                                                 </div>
@@ -65,7 +65,7 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            <form class="ajax-store" method="post" action="{{ route('dorms.store') }}">
+                            <form class="ajax-store" method="post" action="{{ route('places.store') }}">
                                 @csrf
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label font-weight-semibold">Name <span class="text-danger">*</span></label>

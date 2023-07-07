@@ -61,11 +61,14 @@
                 @if (auth()->user()->user_type == 'super_admin' || auth()->user()->user_type == 'admin')
 
                 @else
-                    <li class="nav-item {{ Route::currentRouteName() == 'dorms.index' ? 'active' : '' }}">
+                    <li class="nav-item {{ Route::currentRouteName() == 'places.index' ? 'active' : '' }}">
                         <a href="{{ route('showplaces') }}" class="nav-link"><i class="icon-home"></i> <span>Places</span></a>
                     </li>
-                    <li class="nav-item {{ Route::currentRouteName() == 'dorms.index' ? 'active' : '' }}">
-                        <a href="{{ route('showplaces') }}" class="nav-link"><i class="icon-pin"></i> <span>Favourite</span></a>
+                    <li class="nav-item {{ Route::currentRouteName() == 'places.favorites' ? 'active' : '' }}">
+                        <a href="{{ route('favorites') }}" class="nav-link"><i class="icon-pin"></i> <span>Favourite</span></a>
+                    </li>
+                    <li class="nav-item {{ Route::currentRouteName() == 'places.add_review' ? 'active' : '' }}">
+                        <a href="{{route('comments.index') }}" class="nav-link"><i class="icon-comment"></i> <span>Comments</span></a>
                     </li>
                 @endif
 
@@ -79,13 +82,13 @@
 
                     {{--Manage Places--}}
                     <li class="nav-item">
-                        <a href="{{ route('dorms.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['dorms.index','dorms.edit']) ? 'active' : '' }}"><i class="icon-home9"></i> <span> Places</span></a>
+                        <a href="{{ route('places.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['places.index','places.edit']) ? 'active' : '' }}"><i class="icon-home9"></i> <span> Places</span></a>
                     </li>
 
-                    {{--Manage Sections--}}
-                    {{-- <li class="nav-item">
-                        <a href="{{ route('sections.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['sections.index','sections.edit',]) ? 'active' : '' }}"><i class="icon-fence"></i> <span>Sections</span></a>
-                    </li> --}}
+                    {{--Manage Comments--}}
+                    <li class="nav-item {{ Route::currentRouteName() == 'places.add_review' ? 'active' : '' }}">
+                        <a href="{{route('comments.index') }}" class="nav-link"><i class="icon-comment"></i> <span>Comments</span></a>
+                    </li>
 
                     <li class="nav-item">
                         <a href="{{ route('sections.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['sections.index','sections.edit',]) ? 'active' : '' }}"><i class="icon-calendar"></i> <span>Calender Events</span></a>
