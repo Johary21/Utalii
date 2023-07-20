@@ -2,10 +2,6 @@
 
 **Utalii** is built on Laravel 8
 
-**SCREENSHOTS** 
-
-<hr />  
-
 There are 3 types of user accounts. They include:
  
 Administrators (Super Admin & Admin)
